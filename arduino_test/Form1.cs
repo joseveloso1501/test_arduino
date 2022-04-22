@@ -62,7 +62,7 @@ namespace arduino_test
             {
                 if (!Arduino.IsOpen)
                 {
-                    Arduino.Open(); //desconecta el puerto COM
+                    Arduino.Open(); //conecta el puerto COM
                     textBox1.Text = "Conectado";
                     textBox1.BackColor = Color.Lime; //cuando el puerto COM se conecta, un label coloreado lo indica
                 }
