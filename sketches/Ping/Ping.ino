@@ -22,7 +22,7 @@
 */
 
 // this constant won't change. It's the pin number of the sensor's output:
-const int pingPin = 7;
+const int pingPin = 8;
 
 void setup() {
   // initialize serial communication:
@@ -55,8 +55,7 @@ void loop() {
   
     Serial.print("Distancia: ");
     Serial.print(inches);
-    Serial.print(" [in] || ");
-    Serial.println();
+    Serial.print(" [in] | ");
     Serial.print(cm);
     Serial.print(" [cm]");
     Serial.println();
