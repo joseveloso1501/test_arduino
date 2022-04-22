@@ -3,4 +3,4 @@ Aplicacion de prueba implementada en Visual Studio 2022, que se conecta con Ardu
 
 En la carpeta "sketches" se encuentran programas para ser cargados en Arduino.
 
-En la carpeta "sketches/Ping" se encuentra un programa utilizar un sensor de ultrasonido y su diagrama de conexión.
+En la carpeta "sketches/Ping" se encuentra un programa para utilizar un sensor de ultrasonido y su diagrama de conexión.
