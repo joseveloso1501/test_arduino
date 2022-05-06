@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -27,8 +28,8 @@ namespace arduino_test
         {
             try
             {
-                Arduino.Write(richTextBox2.ToString()); //envia lo que contiene richTextBox2 al arduino
-                timer1.Enabled = true; //inicia el timer, el que monitorea la salida de arduino
+                Arduino.WriteLine(richTextBox2.Text.ToString()); //envia lo que contiene richTextBox2 al arduino
+                //timer1.Enabled = true; //inicia el timer, el que monitorea la salida de arduino
             }
             catch (Exception ex)
             {
@@ -56,6 +57,7 @@ namespace arduino_test
 
         private void button2_Click(object sender, EventArgs e)
         {
+            timer1.Enabled = true; //inicia el timer, el que monitorea la salida de arduino
             Arduino.PortName = comboBox1.SelectedItem.ToString(); //el puerto de conexion es el seleccionado en el comboBox1
             Arduino.BaudRate = 9600;
             try
@@ -89,17 +91,43 @@ namespace arduino_test
         {
             try
             {
-                string salida = Arduino.ReadExisting().ToString(); //guarda en string "salida" la salida entregada por el arduino
-                if (salida.Length > 0)
+                if (Arduino.IsOpen)
                 {
-                    richTextBox1.Text = salida; //guarda en richTextBox1 la ultima salida del arduino
-                    //richTextBox1.Text += salida + "\n"; //concatena todas las salidas del arduino y las guarda en richTextBox1
+                    string salida = Arduino.ReadExisting().ToString(); //guarda en string "salida" la salida entregada por el arduino
+                    if (salida.Length > 0)
+                    {
+                        richTextBox1.Text = salida; //guarda en richTextBox1 la ultima salida del arduino
+                                                    //richTextBox1.Text += salida + "\n"; //concatena todas las salidas del arduino y las guarda en richTextBox1
+                    }
                 }
             } catch (Exception ex) 
             {
                 MessageBox.Show(ex.Message);
             }
             
+        }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+            timer1.Enabled = false;
+            if (Arduino.IsOpen)
+            {
+                Arduino.Close(); //desconecta el puerto COM
+                textBox1.Text = "Desconectado";
+                textBox1.BackColor = Color.Red; //cuando el puerto COM se desconecta, un label coloreado lo indica
+            }
+
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            timer1.Enabled = true; //inicia el timer, el que monitorea la salida de arduino
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            if (saveFileDialog1.ShowDialog() == DialogResult.OK)
+                File.WriteAllLines(saveFileDialog1.FileName + " .txt", richTextBox1.Lines);
         }
     }
 }

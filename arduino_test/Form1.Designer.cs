@@ -41,15 +41,18 @@
             this.richTextBox2 = new System.Windows.Forms.RichTextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.button5 = new System.Windows.Forms.Button();
+            this.button6 = new System.Windows.Forms.Button();
+            this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
             this.SuspendLayout();
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(211, 320);
+            this.button1.Location = new System.Drawing.Point(113, 277);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(216, 34);
+            this.button1.Size = new System.Drawing.Size(131, 34);
             this.button1.TabIndex = 0;
-            this.button1.Text = "Iniciar";
+            this.button1.Text = "Enviar";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
@@ -64,7 +67,7 @@
             // 
             // richTextBox1
             // 
-            this.richTextBox1.Location = new System.Drawing.Point(339, 221);
+            this.richTextBox1.Location = new System.Drawing.Point(333, 212);
             this.richTextBox1.Name = "richTextBox1";
             this.richTextBox1.Size = new System.Drawing.Size(279, 59);
             this.richTextBox1.TabIndex = 3;
@@ -74,11 +77,11 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(342, 202);
+            this.label1.Location = new System.Drawing.Point(334, 193);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(49, 16);
+            this.label1.Size = new System.Drawing.Size(46, 16);
             this.label1.TabIndex = 4;
-            this.label1.Text = "Salida:";
+            this.label1.Text = "Salida";
             // 
             // label2
             // 
@@ -87,11 +90,11 @@
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(129, 16);
             this.label2.TabIndex = 5;
-            this.label2.Text = "Estado de conexion:";
+            this.label2.Text = "Estado de conexión:";
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(100, 110);
+            this.button2.Location = new System.Drawing.Point(105, 110);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(138, 35);
             this.button2.TabIndex = 6;
@@ -101,7 +104,7 @@
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(407, 110);
+            this.button3.Location = new System.Drawing.Point(412, 110);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(138, 35);
             this.button3.TabIndex = 7;
@@ -119,7 +122,7 @@
             "COM3",
             "COM4",
             "COM5"});
-            this.comboBox1.Location = new System.Drawing.Point(260, 116);
+            this.comboBox1.Location = new System.Drawing.Point(267, 116);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(121, 24);
             this.comboBox1.TabIndex = 8;
@@ -127,7 +130,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(297, 90);
+            this.label3.Location = new System.Drawing.Point(304, 90);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(46, 16);
             this.label3.TabIndex = 9;
@@ -135,7 +138,8 @@
             // 
             // richTextBox2
             // 
-            this.richTextBox2.Location = new System.Drawing.Point(35, 221);
+            this.richTextBox2.Location = new System.Drawing.Point(39, 212);
+            this.richTextBox2.Multiline = false;
             this.richTextBox2.Name = "richTextBox2";
             this.richTextBox2.Size = new System.Drawing.Size(279, 59);
             this.richTextBox2.TabIndex = 10;
@@ -144,22 +148,44 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(32, 202);
+            this.label4.Location = new System.Drawing.Point(36, 193);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(57, 16);
+            this.label4.Size = new System.Drawing.Size(54, 16);
             this.label4.TabIndex = 11;
-            this.label4.Text = "Entrada:";
+            this.label4.Text = "Entrada";
             // 
             // timer1
             // 
             this.timer1.Interval = 1000;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
+            // button5
+            // 
+            this.button5.Location = new System.Drawing.Point(407, 277);
+            this.button5.Name = "button5";
+            this.button5.Size = new System.Drawing.Size(131, 34);
+            this.button5.TabIndex = 13;
+            this.button5.Text = "Guardar";
+            this.button5.UseVisualStyleBackColor = true;
+            this.button5.Click += new System.EventHandler(this.button5_Click);
+            // 
+            // button6
+            // 
+            this.button6.Location = new System.Drawing.Point(219, 347);
+            this.button6.Name = "button6";
+            this.button6.Size = new System.Drawing.Size(216, 34);
+            this.button6.TabIndex = 14;
+            this.button6.Text = "Finalizar comunicación";
+            this.button6.UseVisualStyleBackColor = true;
+            this.button6.Click += new System.EventHandler(this.button6_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(654, 403);
+            this.ClientSize = new System.Drawing.Size(654, 406);
+            this.Controls.Add(this.button6);
+            this.Controls.Add(this.button5);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.richTextBox2);
             this.Controls.Add(this.label3);
@@ -175,6 +201,7 @@
             this.Text = "Conexión con Arduino";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing);
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Form1_FormClosed);
+            this.Load += new System.EventHandler(this.Form1_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -194,6 +221,9 @@
         private System.Windows.Forms.RichTextBox richTextBox2;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Timer timer1;
+        private System.Windows.Forms.Button button5;
+        private System.Windows.Forms.Button button6;
+        private System.Windows.Forms.SaveFileDialog saveFileDialog1;
     }
 }
 
