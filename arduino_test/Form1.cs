@@ -57,11 +57,12 @@ namespace arduino_test
 
         private void button2_Click(object sender, EventArgs e)
         {
-            timer1.Enabled = true; //inicia el timer, el que monitorea la salida de arduino
-            Arduino.PortName = comboBox1.SelectedItem.ToString(); //el puerto de conexion es el seleccionado en el comboBox1
-            Arduino.BaudRate = 9600;
             try
             {
+                timer1.Enabled = true; //inicia el timer, el que monitorea la salida de arduino
+                Arduino.PortName = comboBox1.SelectedItem.ToString(); //el puerto de conexion es el seleccionado en el comboBox1
+                Arduino.BaudRate = 9600;
+
                 if (!Arduino.IsOpen)
                 {
                     Arduino.Open(); //conecta el puerto COM
@@ -97,7 +98,7 @@ namespace arduino_test
                     if (salida.Length > 0)
                     {
                         richTextBox1.Text = salida; //guarda en richTextBox1 la ultima salida del arduino
-                                                    //richTextBox1.Text += salida + "\n"; //concatena todas las salidas del arduino y las guarda en richTextBox1
+                        //richTextBox1.Text += salida + "\n"; //concatena todas las salidas del arduino y las guarda en richTextBox1
                     }
                 }
             } catch (Exception ex) 
@@ -121,7 +122,7 @@ namespace arduino_test
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            timer1.Enabled = true; //inicia el timer, el que monitorea la salida de arduino
+           // timer1.Enabled = true; //inicia el timer, el que monitorea la salida de arduino
         }
 
         private void button5_Click(object sender, EventArgs e)

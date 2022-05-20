@@ -2,7 +2,6 @@ C:\Users\ignac\OneDrive\UBB\Ayudantia CIM\apps_vs\arduino_test\arduino_test\bin\
 C:\Users\ignac\OneDrive\UBB\Ayudantia CIM\apps_vs\arduino_test\arduino_test\bin\Debug\arduino_test.exe
 C:\Users\ignac\OneDrive\UBB\Ayudantia CIM\apps_vs\arduino_test\arduino_test\bin\Debug\arduino_test.pdb
 C:\Users\ignac\OneDrive\UBB\Ayudantia CIM\apps_vs\arduino_test\arduino_test\obj\Debug\arduino_test.csproj.AssemblyReference.cache
-C:\Users\ignac\OneDrive\UBB\Ayudantia CIM\apps_vs\arduino_test\arduino_test\obj\Debug\arduino_test.csproj.SuggestedBindingRedirects.cache
 C:\Users\ignac\OneDrive\UBB\Ayudantia CIM\apps_vs\arduino_test\arduino_test\obj\Debug\arduino_test.Form1.resources
 C:\Users\ignac\OneDrive\UBB\Ayudantia CIM\apps_vs\arduino_test\arduino_test\obj\Debug\arduino_test.Properties.Resources.resources
 C:\Users\ignac\OneDrive\UBB\Ayudantia CIM\apps_vs\arduino_test\arduino_test\obj\Debug\arduino_test.csproj.GenerateResource.cache
