@@ -21,21 +21,18 @@
   https://www.arduino.cc/en/Tutorial/BuiltInExamples/Ping
 */
 
-// this constant won't change. It's the pin number of the sensor's output:
-const int pingPin = 8;
+
+const int pingPin = 8; //pin donde se conecta la salida de señal del sensor
 
 void setup() {
-  // initialize serial communication:
-  Serial.begin(9600);
+  Serial.begin(9600); //inicializar la comunicacion serial
 }
 
 void loop() {
-  // establish variables for duration of the ping, and the distance result
-  // in inches and centimeters:
-  long duration, inches, cm;
+  long duration, inches, cm; //definicion de variables: duracion del ping y resultado de la distancia medida en pulgadas y centimentros 
 
-  // The PING))) is triggered by a HIGH pulse of 2 or more microseconds.
-  // Give a short LOW pulse beforehand to ensure a clean HIGH pulse:
+  // PING))) es accionado por un pulso HIGH de 2 o mas milisegundos
+  //se da un pulso LOW corto anticipadamente para asegurar un pulso ALTO limpio
   pinMode(pingPin, OUTPUT);
   digitalWrite(pingPin, LOW);
   delayMicroseconds(2);
@@ -43,13 +40,13 @@ void loop() {
   delayMicroseconds(5);
   digitalWrite(pingPin, LOW);
 
-  // The same pin is used to read the signal from the PING))): a HIGH pulse
-  // whose duration is the time (in microseconds) from the sending of the ping
-  // to the reception of its echo off of an object.
+  // El mismo pin es usado para leer la señal del PING))): 
+  // un pulso ALTO cuya duración es el tiempo (en microsegundos) 
+  // desde el envío del ping hasta la recepción de su eco en un objeto.
   pinMode(pingPin, INPUT);
   duration = pulseIn(pingPin, HIGH);
 
-  // convert the time into a distance
+  // convertir el tiempo en distancia
   inches = microsecondsToInches(duration);
   cm = microsecondsToCentimeters(duration);
   
@@ -66,17 +63,16 @@ void loop() {
 }
 
 long microsecondsToInches(long microseconds) {
-  // According to Parallax's datasheet for the PING))), there are 73.746
-  // microseconds per inch (i.e. sound travels at 1130 feet per second).
-  // This gives the distance travelled by the ping, outbound and return,
-  // so we divide by 2 to get the distance of the obstacle.
-  // See: https://www.parallax.com/package/ping-ultrasonic-distance-sensor-downloads/
+   // Según la hoja de datos de Parallax para el PING))), hay 73.746
+   // microsegundos por pulgada (es decir, el sonido viaja a 1130 pies por segundo).
+   // Esto da la distancia recorrida por el ping, ida y vuelta,
+   // así que dividimos por 2 para obtener la distancia del obstáculo.
+  // ver: https://www.parallax.com/package/ping-ultrasonic-distance-sensor-downloads/
   return microseconds / 74 / 2;
 }
 
 long microsecondsToCentimeters(long microseconds) {
-  // The speed of sound is 340 m/s or 29 microseconds per centimeter.
-  // The ping travels out and back, so to find the distance of the object we
-  // take half of the distance travelled.
+  // la velocidad del sonido es 340 m/s o 29 microsegundos por centimetro.
+  // El ping viaja de ida y vuelta, así que para encontrar la distancia del objeto tomamos la mitad de la distancia recorrida.
   return microseconds / 29 / 2;
 }

@@ -2,7 +2,7 @@
 #include <DHT11.h>
 
 /*Instancia del sensor en el pin que está conectado*/
-int pin=9;
+int pin=7;
 DHT11 dht11(pin);
 
 /* Definimos la velocidad de lectura en el setup*/
